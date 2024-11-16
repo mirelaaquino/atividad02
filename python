@@ -1,0 +1,105 @@
+class Bola:
+    def __init__(self, cor, circunferencia, material):
+        self.cor = cor
+        self.circunferencia = circunferencia
+        self.material = material
+
+    def trocaCor(self, nova_cor):
+        self.cor = nova_cor
+
+    def mostraCor(self):
+        return self.cor
+class Quadrado:
+    def __init__(self, lado):
+        self.lado = lado
+
+    def mudarValorLado(self, novo_lado):
+        self.lado = novo_lado
+
+    def retornarValorLado(self):
+        return self.lado
+
+    def calcularArea(self):
+        return self.lado ** 2
+class Retangulo:
+    def __init__(self, lado_a, lado_b):
+        self.lado_a = lado_a
+        self.lado_b = lado_b
+
+    def mudarValorLados(self, novo_lado_a, novo_lado_b):
+        self.lado_a = novo_lado_a
+        self.lado_b = novo_lado_b
+
+    def retornarValorLados(self):
+        return self.lado_a, self.lado_b
+
+    def calcularArea(self):
+        return self.lado_a * self.lado_b
+
+    def calcularPerimetro(self):
+        return 2 * (self.lado_a + self.lado_b)
+def calcular_pisos_e_rodapes():
+    # Solicitando as dimensões do local
+    comprimento = float(input("Digite o comprimento do local (em metros): "))
+    largura = float(input("Digite a largura do local (em metros): "))
+    
+    # Criando o objeto Retangulo
+    retangulo = Retangulo(comprimento, largura)
+    
+    # Calculando a área e perímetro
+    area = retangulo.calcularArea()
+    perimetro = retangulo.calcularPerimetro()
+    
+    # Estimativas de pisos e rodapés
+    quantidade_pisos = area  # 1 metro quadrado = 1 piso
+    quantidade_rodapes = perimetro  # 1 metro de rodapé por metro de perímetro
+    
+    print(f"Área do local: {area} m²")
+    print(f"Perímetro do local: {perimetro} metros")
+    print(f"Quantidade de pisos necessários: {quantidade_pisos} pisos")
+    print(f"Quantidade de rodapés necessários: {quantidade_rodapes} metros de rodapé")
+
+# Chamada da função
+calcular_pisos_e_rodapes()
+class Pessoa:
+    def __init__(self, nome, idade, peso, altura):
+        self.nome = nome
+        self.idade = idade
+        self.peso = peso
+        self.altura = altura
+
+    def envelhecer(self):
+        self.idade += 1
+        if self.idade < 21:
+            self.altura += 0.5  # Cresce 0,5 cm por ano até os 21 anos
+
+    def engordar(self, kilos):
+        self.peso += kilos
+
+    def emagrecer(self, kilos):
+        self.peso -= kilos
+
+    def crescer(self, centimetros):
+        self.altura += centimetros
+def exemplo_pessoa():
+    # Criando uma pessoa
+    pessoa = Pessoa("João", 20, 70, 175)
+
+    # A pessoa envelhece por 3 anos
+    for _ in range(3):
+        pessoa.envelhecer()
+    
+    # A pessoa engorda 2 kg
+    pessoa.engordar(2)
+    
+    # A pessoa emagrece 3 kg
+    pessoa.emagrecer(3)
+
+    # Exibindo os dados da pessoa
+    print(f"Nome: {pessoa.nome}")
+    print(f"Idade: {pessoa.idade} anos")
+    print(f"Peso: {pessoa.peso} kg")
+    print(f"Altura: {pessoa.altura} cm")
+
+# Chamada da função
+exemplo_pessoa()
